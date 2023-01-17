@@ -2,7 +2,7 @@
 
 if command -v pacman &> /dev/null
 then
-    sudo pacman -Syyy zsh yay tldr bat flameshot tmux
+    sudo pacman -Syyy zsh yay tldr bat flameshot tmux curl
 fi
 
 if command -v apt &> /dev/null
@@ -19,6 +19,12 @@ fi
 if ! command -v tmux &> /dev/null
 then
     echo "TMUX could not be installed/found"
+    exit
+fi
+
+if ! command -v curl &> /dev/null
+then
+    echo "curl could not be installed/found"
     exit
 fi
 
@@ -60,5 +66,9 @@ ZSH_TMUX_AUTOSTART=true\
 export LC_ALL=en_US.UTF-8/' ~/.zshrc
 
 echo 'export LC_ALL=en_US.UTF-8' >> ~/.zshrc
+
+echo "alias tmux=\"echo 'You may not want to use this command. Execute with /usr/bin/tmux'\"" >> ~/.zshrc
+
+echo "alias cat=\"batcat\"" >> ~/.zshrc
 
 echo "Now close everything in the terminal and open it again to see the changes"
