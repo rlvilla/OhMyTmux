@@ -33,14 +33,18 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 mv ~/.tmux.conf ~/.tmux.conf.bk
 
-echo 'set -g mouse on
+echo "setw -g mode-keys vi
+set -g mouse on
 set -g history-limit 20000
 
-set -g default-terminal "screen-256color"
+set -g default-terminal \"screen-256color\"
 
 set -g status-bg colour208
 set -g status-fg black
-set-option -g default-shell /bin/zsh' > ~/.tmux.conf
+set-option -g default-shell /bin/zsh
+bind '\"' split-window -c \"#{pane_current_path}\"
+bind % split-window -h -c \"#{pane_current_path}\"
+bind c new-window -c \"#{pane_current_path}\"" > ~/.tmux.conf
 
 sed -i 's/="robbyrussell"/="agnoster"/' ~/.zshrc
 
@@ -55,6 +59,6 @@ ZSH_TMUX_AUTOSTART=true\
 \
 export LC_ALL=en_US.UTF-8/' ~/.zshrc
 
-echo "Now close everything in the terminal and open it again to see the changes"
-
 echo 'export LC_ALL=en_US.UTF-8' >> ~/.zshrc
+
+echo "Now close everything in the terminal and open it again to see the changes"
