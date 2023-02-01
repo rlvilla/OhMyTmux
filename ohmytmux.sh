@@ -5,7 +5,7 @@ then
     sudo pacman -Syyy zsh yay tldr bat flameshot tmux curl git
 fi
 
-if command -v apt &> /dev/null
+if command -v sudo && command -v apt &> /dev/null
 then
     sudo apt update
     sudo apt install zsh tmux bat tldr flameshot curl fonts-powerline git
