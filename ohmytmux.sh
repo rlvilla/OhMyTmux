@@ -116,12 +116,12 @@ set -g @scroll-speed-num-lines-per-scroll 1" >> ~/.tmux.conf
 
 fi
 
-~/.tmux/plugins/tpm/scripts/install_plugins.sh
-
 echo "
 
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'" >> ~/.tmux.conf
+
+~/.tmux/plugins/tpm/scripts/install_plugins.sh
 
 echo "Now close everything in the terminal and open it again to see the changes"
