@@ -43,7 +43,13 @@ sh -c "$(curl -fsSL https://github.com/rlvilla/OhMyTmux/raw/main/ohmytmux.sh)"
 
 ## References
 Some parts of the code and ideas are borrowed from:
+
 https://github.com/Cabbagec/termux-ohmyzsh/
+
 https://github.com/tmux-plugins/tpm/issues/6
+
 https://github.com/nhdaly/tmux-better-mouse-mode
+
 https://gist.github.com/Neo-Oli/8c5dcb1c75b59b8bf4474105f758e9ca
+
+https://gist.github.com/william8th/faf23d311fc842be698a1d80737d9631
