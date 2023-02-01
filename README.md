@@ -14,8 +14,9 @@ Currently tested working in fresh installs of latest versions (as of January 202
 This is recommended for fresh/new machines, as **it may break your current installation.** Backups and replaces previous .zshrc and .tmux.conf files.
 
 Installs and configures the following tools:
-- ZSH 
+- ZSH (it is set as default shell)
 - oh-my-zsh (with "agnoster" theme set)
+- oh-my-zsh Autosuggestions and Syntax Highlighting plugins
 - TMUX (autostarting ZSH with oh-my-zsh)
 - TPM: TMUX Plugin Manager
 - TMUX-Continuum: Tmux Plugin to resurrect previous session after a reboot or logout
@@ -23,6 +24,16 @@ Installs and configures the following tools:
 - Bat: an improved cat
 - TLDR: simplifies man pages with examples
 - Flameshot: a powerful screenshot saver
+
+OhMyTmux on a Ubuntu Mate 20.04 fresh install:
+
+![ohmytmux_ubuntumate](https://user-images.githubusercontent.com/16118866/216120640-5648c7cd-52a0-48c8-9252-268955d1304a.png)
+
+OhMyTmux on Termux v0.118:
+
+![ohmytmux_termux](https://user-images.githubusercontent.com/16118866/216121625-53073dc1-7cbd-47c6-814f-1156cc2830e5.jpg)
+
+
 
 ## Installation
 Download the raw file or clone the repository, then run with:
@@ -40,6 +51,8 @@ or curl:
 ```
 sh -c "$(curl -fsSL https://github.com/rlvilla/OhMyTmux/raw/main/ohmytmux.sh)"
 ```
+## Troubleshooting
+Depending on the system, terminal may not execute TMUX/ZSH automatically and may need a reboot/logout to apply the changes to the default shell.
 
 ## References
 Some parts of the code and ideas are borrowed from:
