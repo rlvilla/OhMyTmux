@@ -8,7 +8,7 @@ fi
 if command -v sudo && command -v apt &> /dev/null
 then
     sudo apt update
-    sudo apt install zsh tmux bat tldr flameshot curl fonts-powerline git
+    sudo apt install -y zsh tmux bat tldr flameshot curl fonts-powerline git
 fi
 
 if command -v termux-info &> /dev/null
@@ -69,6 +69,7 @@ set -g @emulate-scroll-for-no-mouse-alternate-buffer on" > ~/.tmux.conf
 if ! command -v termux-info &> /dev/null
 then
     echo "set-option -g default-shell /bin/zsh" >> ~/.tmux.conf
+    chsh -s /usr/bin/zsh
 else
     chsh -s zsh
 fi
@@ -124,4 +125,5 @@ run '~/.tmux/plugins/tpm/tpm'" >> ~/.tmux.conf
 
 ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 
-echo "Now close everything in the terminal and open it again to see the changes"
+echo "Now, close all the terminals and open it again to see the changes"
+echo "In some terminals like the one in Ubuntu, you may need to logout and login to see the changes"
