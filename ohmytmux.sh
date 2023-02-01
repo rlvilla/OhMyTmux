@@ -43,7 +43,7 @@ fi
 DATE=$(date +"%d%m%Y%H%M")
 cp ~/.zshrc ~/.zshrc.bak-$DATE
 
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
@@ -67,6 +67,8 @@ bind c new-window -c \"#{pane_current_path}\"
 
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'nhdaly/tmux-better-mouse-mode'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
 
 set -g @emulate-scroll-for-no-mouse-alternate-buffer on" > ~/.tmux.conf
 
@@ -101,7 +103,8 @@ else
     echo "alias cat=\"bat\"" >> ~/.zshrc
     mkdir -p ~/.termux
     cd ~/.termux
-    curl -fsLo font.ttf https://github.com/Cabbagec/termux-ohmyzsh/blob/master/.termux/fonts/SourceCodePro/Sauce%20Code%20Powerline%20Regular.otf 
+    curl -fsLo font.ttf https://github.com/Cabbagec/termux-ohmyzsh/raw/master/.termux/fonts/SourceCodePro/Sauce%20Code%20Powerline%20Regular.otf 
+    termux-reload-settings
     echo "# Resize panes with arrow keys because alt-arrow keys doesn't work
 bind-key -r Up    resize-pane -U
 bind-key -r Down  resize-pane -D
@@ -109,8 +112,11 @@ bind-key -r Left  resize-pane -L
 bind-key -r Right resize-pane -R
 set -g @scroll-without-changing-pane on
 set -g @scroll-speed-num-lines-per-scroll 1" >> ~/.tmux.conf
+#termux-fix-shebang ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 
 fi
+
+~/.tmux/plugins/tpm/scripts/install_plugins.sh
 
 echo "
 
