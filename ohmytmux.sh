@@ -63,6 +63,9 @@ set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'nhdaly/tmux-better-mouse-mode'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @plugin 'tmux-plugins/tmux-yank'
+
+set -g @yank_selection_mouse 'clipboard'
 
 set -g @emulate-scroll-for-no-mouse-alternate-buffer on" > ~/.tmux.conf
 
@@ -97,6 +100,14 @@ echo 'export LC_ALL=en_US.UTF-8' >> ~/.zshrc
 
 echo "alias tmux=\"echo 'You may not want to use this command. Execute with /usr/bin/tmux'\"" >> ~/.zshrc
 
+echo "setopt CHASE_LINKS" >> ~/.zshrc
+
+echo "alias ipa=\"ip -brief a\"" >> ~/.zshrc
+
+echo "alias getip=\"wget http://checkip.dyndns.org/ -O - -o /dev/null | cut -d: -f 2 | cut -d\< -f 1 | sed 's/ //g'\"" >> ~/.zshrc
+
+echo "alias hg=\"history | grep -i\"" >> ~/.zshrc
+
 if ! command -v termux-info &> /dev/null
 then
     echo "alias cat=\"batcat\"" >> ~/.zshrc
@@ -115,6 +126,11 @@ set -g @scroll-without-changing-pane on
 set -g @scroll-speed-num-lines-per-scroll 1" >> ~/.tmux.conf
 #termux-fix-shebang ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 
+fi
+
+if command -v nano &> /dev/null && ! test -f ~/.nanorc
+then
+    echo "include /usr/share/nano/*" >> ~/.nanorc
 fi
 
 echo "

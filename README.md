@@ -20,9 +20,13 @@ Installs and configures the following tools:
 - TPM: TMUX Plugin Manager
 - TMUX-Continuum: Tmux Plugin to resurrect previous session after a reboot or logout
 - TMUX Better Mouse Plugin: Tmux Plugin to improve Tmux's built-in mouse mode
-- Bat: an improved cat
+- TMUX Yank: auto copy to clipboard when mouse selecting in TMUX
+- Bat: an improved cat (no line number mode)
 - TLDR: simplifies man pages with examples
 - Flameshot: a powerful screenshot saver
+- nano: Configures syntax highlighting 
+
+It also includes some aliases and useful commands I usually use. Check ```~/.zshrc``` file to see them.
 
 ## Installation
 Download the raw file or clone the repository, then run with:
@@ -40,6 +44,13 @@ or curl:
 ```
 sh -c "$(curl -fsSL https://github.com/rlvilla/OhMyTmux/raw/main/ohmytmux.sh)"
 ```
+
+## Manual Uninstall
+This will wipe configurations made by the script and oh-my-tmux and TMUX Plugin Manager (TPM).
+
+Remove ```~/.oh-my-zsh``` and ```~/.tmux``` folders, and ```~/.tmux.conf``` ```~/.zshrc``` files.
+
+To recover previous ```~/.tmux.conf``` and ```~/.zshrc``` files, rename the auto backup done by the script with the first installation of ohmytmux back to ```~/.tmux.conf``` and ```~/.zshrc``` respectively.
 
 ## References
 Some parts of the code and ideas are borrowed from:
