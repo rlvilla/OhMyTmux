@@ -132,7 +132,7 @@ fi
 
 if command -v nano &> /dev/null && ! test -f ~/.nanorc
 then
-    echo "include /usr/share/nano/*" >> ~/.nanorc
+    ls -1 /usr/share/nano/*.nanorc | sed 's/^\//include \//' >> ~/.nanorc
 fi
 
 echo "
