@@ -53,7 +53,7 @@ bash <(wget -qO - https://github.com/rlvilla/OhMyTmux/raw/main/ohmytmux.sh)
 
 or curl:
 ```
-sh -c "$(curl -fsSL https://github.com/rlvilla/OhMyTmux/raw/main/ohmytmux.sh)"
+bash -c "$(curl -fsSL https://github.com/rlvilla/OhMyTmux/raw/main/ohmytmux.sh)"
 ```
 ## Troubleshooting
 Depending on the system, terminal may not execute TMUX/ZSH automatically and may need a reboot/logout to apply the changes to the default shell.
@@ -70,12 +70,12 @@ chmod +x uninstall_ohmytmux.sh
 
 You also can execute it automatically with wget:
 ```
-bash <(wget -O - https://github.com/rlvilla/OhMyTmux/raw/main/uninstall_ohmytmux.sh)
+bash <(wget -qO - https://github.com/rlvilla/OhMyTmux/raw/main/uninstall_ohmytmux.sh)
 ```
 
 or curl:
 ```
-sh -c "$(curl -fsSL https://github.com/rlvilla/OhMyTmux/raw/main/uninstall_ohmytmux.sh)"
+bash -c "$(curl -fsSL https://github.com/rlvilla/OhMyTmux/raw/main/uninstall_ohmytmux.sh)"
 ```
 
 ## Manual Uninstall
