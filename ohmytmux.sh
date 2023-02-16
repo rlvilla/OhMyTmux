@@ -65,6 +65,8 @@ set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'nhdaly/tmux-better-mouse-mode'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @continuum-restore 'on'
+
 set -g @plugin 'tmux-plugins/tmux-yank'
 
 set -g @yank_selection_mouse 'clipboard'
