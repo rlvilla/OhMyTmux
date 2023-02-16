@@ -48,7 +48,7 @@ chmod +x ohmytmux.sh
 
 You also can execute it automatically with wget:
 ```
-bash <(wget -O - https://github.com/rlvilla/OhMyTmux/raw/main/ohmytmux.sh)
+bash <(wget -qO - https://github.com/rlvilla/OhMyTmux/raw/main/ohmytmux.sh)
 ```
 
 or curl:
