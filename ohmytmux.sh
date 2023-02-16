@@ -41,12 +41,10 @@ then
 fi
 
 DATE=$(date +"%d-%m-%Y_%H-%M")
+
 mv ~/.zshrc ~/.zshrc.bak-pre-ohmytmux-$DATE
-
 mv ~/.tmux.conf ~/.tmux.conf.bak-pre-ohmytmux-$DATE
-
 mv ~/.oh-my-zsh ~/.oh-my-zsh-pre-ohmytmux-$DATE
-
 mv ~/.tmux ~/.tmux-pre-ohmytmux-$DATE
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -145,5 +143,15 @@ run '~/.tmux/plugins/tpm/tpm'" >> ~/.tmux.conf
 
 ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 
-echo "Now, close all the terminals and open it again to see the changes"
-echo "In some terminals like the one in Ubuntu, you may need to logout and login to see the changes"
+NC='\033[0m' # No Color
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+
+echo -e "${GREEN}OhMyTmux Installed!"
+echo ""
+echo -e "Now, oh-my-zsh and TMUX will run.${NC}"
+echo ""
+echo -ne "${YELLOW}In some terminals like the one in Ubuntu, you may need to logout and login to have ZSH and TMUX executed automatically in new instances${NC}"
+echo ""
+read -p "Press enter to continue..."
+zsh

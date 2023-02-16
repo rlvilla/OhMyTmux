@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "This will backup .tmux and .oh-my.zsh folders, and .tmux.conf and .zshrc files."
+echo "This will backup .tmux and .oh-my-zsh folders, and .tmux.conf and .zshrc files."
 echo "It also will try to restore previous versions backed up by the installation script."
 echo ""
 read -p "Are you sure you wish to continue? (yes/no) "
@@ -33,4 +33,13 @@ fi
 mv ~/.zshrc.temp ~/.zshrc.bak-ohmytmux-$DATE
 mv ~/.tmux.conf.temp ~/.tmux.conf.bak-ohmytmux-$DATE
 
+echo ""
 echo "OhMyTmux removed"
+
+echo "Default shell is ZSH."
+read -p "Do you want to revert back to bash? (yes/no) "
+if [ "$REPLY" != "yes" ]; then
+   exit
+fi
+
+chsh -s /bin/bash

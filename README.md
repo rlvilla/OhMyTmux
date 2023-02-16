@@ -59,7 +59,7 @@ sh -c "$(curl -fsSL https://github.com/rlvilla/OhMyTmux/raw/main/ohmytmux.sh)"
 Depending on the system, terminal may not execute TMUX/ZSH automatically and may need a reboot/logout to apply the changes to the default shell.
 
 ## Auto Uninstall
-This will backup .tmux and .oh-my.zsh folders, and .tmux.conf and .zshrc files.
+This will backup .tmux and .oh-my-zsh folders, and .tmux.conf and .zshrc files.
 It also will try to restore previous versions backed up by the installation script.
 
 Download the raw ```uninstall_ohmytmux.sh``` file or clone the repository, then run with:
