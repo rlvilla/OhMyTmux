@@ -40,7 +40,7 @@ OhMyTmux on Termux v0.118:
 
 
 ## Installation
-Download the raw file or clone the repository, then run with:
+Download the raw ```ohmytmux.sh``` file or clone the repository, then run with:
 ```
 chmod +x ohmytmux.sh
 ./ohmytmux.sh
@@ -57,6 +57,26 @@ sh -c "$(curl -fsSL https://github.com/rlvilla/OhMyTmux/raw/main/ohmytmux.sh)"
 ```
 ## Troubleshooting
 Depending on the system, terminal may not execute TMUX/ZSH automatically and may need a reboot/logout to apply the changes to the default shell.
+
+## Auto Uninstall
+This will backup .tmux and .oh-my.zsh folders, and .tmux.conf and .zshrc files.
+It also will try to restore previous versions backed up by the installation script.
+
+Download the raw ```uninstall_ohmytmux.sh``` file or clone the repository, then run with:
+```
+chmod +x uninstall_ohmytmux.sh
+./uninstall_ohmytmux.sh
+```
+
+You also can execute it automatically with wget:
+```
+bash <(wget -O - https://github.com/rlvilla/OhMyTmux/raw/main/uninstall_ohmytmux.sh)
+```
+
+or curl:
+```
+sh -c "$(curl -fsSL https://github.com/rlvilla/OhMyTmux/raw/main/uninstall_ohmytmux.sh)"
+```
 
 ## Manual Uninstall
 This will wipe configurations made by the script and oh-my-tmux and TMUX Plugin Manager (TPM).

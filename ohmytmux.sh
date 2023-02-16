@@ -40,10 +40,14 @@ then
     exit
 fi
 
-DATE=$(date +"%d%m%Y%H%M")
-cp ~/.zshrc ~/.zshrc.bak-$DATE
+DATE=$(date +"%d-%m-%Y_%H-%M")
+mv ~/.zshrc ~/.zshrc.bak-pre-ohmytmux-$DATE
 
-mv ~/.tmux.conf ~/.tmux.conf.bak-$DATE
+mv ~/.tmux.conf ~/.tmux.conf.bak-pre-ohmytmux-$DATE
+
+mv ~/.oh-my-zsh ~/.oh-my-zsh-pre-ohmytmux-$DATE
+
+mv ~/.tmux ~/.tmux-pre-ohmytmux-$DATE
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
@@ -110,9 +114,9 @@ echo "alias hg=\"history | grep -i\"" >> ~/.zshrc
 
 if ! command -v termux-info &> /dev/null
 then
-    echo "alias cat=\"batcat\"" >> ~/.zshrc
+    echo "alias cat=\"batcat --style=plain\"" >> ~/.zshrc
 else
-    echo "alias cat=\"bat\"" >> ~/.zshrc
+    echo "alias cat=\"bat --style=plain\"" >> ~/.zshrc
     mkdir -p ~/.termux
     cd ~/.termux
     curl -fsLo font.ttf https://github.com/Cabbagec/termux-ohmyzsh/raw/master/.termux/fonts/SourceCodePro/Sauce%20Code%20Powerline%20Regular.otf 
