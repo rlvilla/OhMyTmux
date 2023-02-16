@@ -66,12 +66,17 @@ set -g @plugin 'nhdaly/tmux-better-mouse-mode'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @continuum-restore 'on'
+set -g @resurrect-capture-pane-contents 'on'
+set -g @continuum-save-interval '5'
 
 set -g @plugin 'tmux-plugins/tmux-yank'
 
 set -g @yank_selection_mouse 'clipboard'
 
 set -g @emulate-scroll-for-no-mouse-alternate-buffer on" > ~/.tmux.conf
+
+chmod 755 ~/.tmux
+mkdir ~/.tmux/resurrect
 
 if ! command -v termux-info &> /dev/null
 then
@@ -149,6 +154,8 @@ NC='\033[0m' # No Color
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 
+echo ""
+echo ""
 echo -e "${GREEN}OhMyTmux Installed!"
 echo ""
 echo -e "Now, oh-my-zsh and TMUX will run.${NC}"
