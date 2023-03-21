@@ -73,7 +73,9 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 
 set -g @yank_selection_mouse 'clipboard'
 
-set -g @emulate-scroll-for-no-mouse-alternate-buffer on" > ~/.tmux.conf
+set -g @emulate-scroll-for-no-mouse-alternate-buffer on
+set -g @plugin 'wfxr/tmux-power'
+set -g @tmux_power_theme '#ff8700'" > ~/.tmux.conf
 
 chmod 755 ~/.tmux
 mkdir ~/.tmux/resurrect
