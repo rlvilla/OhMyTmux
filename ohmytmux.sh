@@ -2,7 +2,7 @@
 
 if command -v pacman &> /dev/null
 then
-    sudo pacman -Syyy zsh yay tldr bat flameshot tmux curl git xclip
+    sudo pacman -Syyy --needed zsh yay tldr bat flameshot tmux curl git xclip ttf-nerd-fonts-symbols-1000-em-mono
 fi
 
 if command -v sudo &> /dev/null && command -v apt &> /dev/null
