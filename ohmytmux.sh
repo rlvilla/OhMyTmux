@@ -5,7 +5,7 @@ then
     sudo pacman -Syyy zsh yay tldr bat flameshot tmux curl git xclip
 fi
 
-if command -v sudo && command -v apt &> /dev/null
+if command -v sudo &> /dev/null && command -v apt &> /dev/null
 then
     sudo apt update
     sudo apt install -y zsh tmux bat tldr flameshot curl fonts-powerline git xclip
@@ -121,7 +121,12 @@ echo "alias hg=\"history | grep -i\"" >> ~/.zshrc
 
 if ! command -v termux-info &> /dev/null
 then
-    echo "alias cat=\"batcat --style=plain\"" >> ~/.zshrc
+    if ! command -v bat &> /dev/null
+    then
+        echo "alias cat=\"batcat --style=plain\"" >> ~/.zshrc
+    else
+        echo "alias cat=\"bat --style=plain\"" >> ~/.zshrc
+    fi
 else
     echo "alias cat=\"bat --style=plain\"" >> ~/.zshrc
     mkdir -p ~/.termux
