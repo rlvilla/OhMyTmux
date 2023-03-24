@@ -1,7 +1,16 @@
 # OhMyTmux
-## USE AT YOUR OWN RISK. 
  
 Bash script to install Tmux, ZSH and other of my favorite tools. Autoconfigures tmux to work with ZSH, adds oh-my-zsh and useful plugins. 
+
+1. [Introduction](#introduction)
+2. [Installation](#installation)
+3. [Manuals and Cheatsheets](#manuals-and-cheatsheets)
+3. [Auto Uninstall](#auto-uninstall)
+3. [Manual Uninstall](#manual-uninstall)
+3. [Troubleshooting](#troubleshooting)
+5. [References](#references)
+
+## Introduction
 
 Currently tested working in fresh installs of latest versions (as of January 2023) of:
 - Manjaro
@@ -11,7 +20,9 @@ Currently tested working in fresh installs of latest versions (as of January 202
 - Parrot
 - Kali 
 
-This is recommended for fresh/new machines, as **it may break your current installation.** Backups and replaces previous .zshrc and .tmux.conf files.
+### Please, use at your own risk. 
+
+This is recommended for fresh/new machines, as **it may break your current installation.** It backups and replaces previous .zshrc and .tmux.conf files, and .tmux and .oh-my-zsh folders.
 
 Installs and configures the following tools:
 - ZSH (it is set as default shell)
@@ -26,12 +37,13 @@ Installs and configures the following tools:
 - TLDR: simplifies man pages with examples
 - Flameshot: a powerful screenshot saver
 - nano: Configures syntax highlighting 
+- Nerd Fonts: Installs "Nerd Fonts" patched fonts (currently only for Arch)
 
 It also includes some aliases and useful commands I usually use. Check ```~/.zshrc``` file to see them.
 
 OhMyTmux on a Ubuntu Mate 20.04 fresh install:
 
-![ohmytmux_ubuntumate](https://user-images.githubusercontent.com/16118866/216120640-5648c7cd-52a0-48c8-9252-268955d1304a.png)
+![ohmytmux_ubuntumate](https://user-images.githubusercontent.com/16118866/227494728-ec09a805-1ed4-47e4-8fab-f29708026219.png)
 
 OhMyTmux on Termux v0.118:
 
@@ -55,8 +67,19 @@ or curl:
 ```
 bash -c "$(curl -fsSL https://github.com/rlvilla/OhMyTmux/raw/main/ohmytmux.sh)"
 ```
-## Troubleshooting
-Depending on the system, terminal may not execute TMUX/ZSH automatically and may need a reboot/logout to apply the changes to the default shell.
+
+## Manuals and Cheatsheets
+
+TMUX Cheatsheet:
+
+https://tmuxcheatsheet.com/  
+
+<br/>
+
+Oh My Zsh Cheatsheet:
+
+https://github.com/ohmyzsh/ohmyzsh/wiki/Cheatsheet
+
 
 ## Auto Uninstall
 This will backup .tmux and .oh-my-zsh folders, and .tmux.conf and .zshrc files.
@@ -84,6 +107,13 @@ This will wipe configurations made by the script and oh-my-tmux and TMUX Plugin 
 Remove ```~/.oh-my-zsh``` and ```~/.tmux``` folders, and ```~/.tmux.conf``` ```~/.zshrc``` files.
 
 To recover previous ```~/.tmux.conf``` and ```~/.zshrc``` files, rename the auto backup done by the script with the first installation of ohmytmux back to ```~/.tmux.conf``` and ```~/.zshrc``` respectively.
+
+## Troubleshooting
+Depending on the system, terminal may not execute TMUX/ZSH automatically and may need a reboot/logout to apply the changes to the default shell.
+
+If some symbols are missing, you may need to download a Nerd Font patched font. Download your font of choice (or the one your terminal app is currently using) from:
+
+https://github.com/ryanoasis/nerd-fonts
 
 ## References
 Some parts of the code and ideas are borrowed from:
