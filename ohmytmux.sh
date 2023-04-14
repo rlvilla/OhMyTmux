@@ -42,10 +42,14 @@ fi
 
 DATE=$(date +"%d-%m-%Y_%H-%M")
 
+echo "Backing up previous ZSH, OhMyZsh and TMUX conf files..."
+
 mv ~/.zshrc ~/.zshrc.bak-pre-ohmytmux-$DATE
 mv ~/.tmux.conf ~/.tmux.conf.bak-pre-ohmytmux-$DATE
 mv ~/.oh-my-zsh ~/.oh-my-zsh-pre-ohmytmux-$DATE
 mv ~/.tmux ~/.tmux-pre-ohmytmux-$DATE
+
+echo "Beginning setup..."
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
@@ -63,6 +67,10 @@ bind c new-window -c \"#{pane_current_path}\"
 
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'nhdaly/tmux-better-mouse-mode'
+
+set -g @plugin 'wfxr/tmux-power'
+set -g @tmux_power_theme '#ff8700'
+
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @continuum-restore 'on'
@@ -74,11 +82,17 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @yank_selection_mouse 'clipboard'
 
 set -g @emulate-scroll-for-no-mouse-alternate-buffer on
-set -g @plugin 'wfxr/tmux-power'
-set -g @tmux_power_theme '#ff8700'" > ~/.tmux.conf
+
+unbind C-b
+# This sets current tmux prefix to the already default Ctrl+B, but makes it easy to change your prefix in the future
+# Just modify C-b in the next two lines with any combination you like. C is for Control key, M for Alt.
+set-option -g prefix C-b
+bind-key C-b send-prefix" > ~/.tmux.conf
 
 chmod 755 ~/.tmux
 mkdir ~/.tmux/resurrect
+
+echo "\nChanging default shell..."
 
 if ! command -v termux-info &> /dev/null
 then
@@ -124,11 +138,14 @@ then
     if ! command -v bat &> /dev/null
     then
         echo "alias cat=\"batcat --style=plain\"" >> ~/.zshrc
+        echo "export MANPAGER=\"sh -c 'col -bx | batcat -l man -p'\"" >> ~/.zshrc
     else
         echo "alias cat=\"bat --style=plain\"" >> ~/.zshrc
+        echo "export MANPAGER=\"sh -c 'col -bx | bat -l man -p'\"" >> ~/.zshrc
     fi
 else
     echo "alias cat=\"bat --style=plain\"" >> ~/.zshrc
+    echo "export MANPAGER=\"sh -c 'col -bx | bat -l man -p'\"" >> ~/.zshrc
     mkdir -p ~/.termux
     cd ~/.termux
     curl -fsLo font.ttf https://github.com/Cabbagec/termux-ohmyzsh/raw/master/.termux/fonts/SourceCodePro/Sauce%20Code%20Powerline%20Regular.otf 
@@ -151,7 +168,6 @@ fi
 
 echo "
 
-
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'" >> ~/.tmux.conf
 
@@ -170,4 +186,5 @@ echo ""
 echo -ne "${YELLOW}In some terminals like the one in Ubuntu, you may need to logout and login to have ZSH and TMUX executed automatically in new instances${NC}"
 echo ""
 read -p "Press enter to continue..."
+
 zsh
