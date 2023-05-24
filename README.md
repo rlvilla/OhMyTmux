@@ -9,6 +9,7 @@ Bash script to install Tmux, ZSH and other of my favorite tools. Autoconfigures 
 - [Auto Uninstall](#auto-uninstall)
 - [Manual Uninstall](#manual-uninstall)
 - [Troubleshooting](#troubleshooting)
+- [Development](#development)
 - [References](#references)
 
 ## Introduction
@@ -71,17 +72,19 @@ chmod +x ohmytmux.sh
 ./ohmytmux.sh
 ```
 
-You also can execute it automatically with wget:
+You also can execute it automatically with curl:
+
+```bash
+bash -c "$(curl -fsSL https://github.com/rlvilla/OhMyTmux/raw/main/ohmytmux.sh)"
+```
+
+or wget:
 
 ```bash
 bash <(wget -qO - https://github.com/rlvilla/OhMyTmux/raw/main/ohmytmux.sh)
 ```
 
-or curl:
 
-```bash
-bash -c "$(curl -fsSL https://github.com/rlvilla/OhMyTmux/raw/main/ohmytmux.sh)"
-```
 
 ## Manuals and Cheatsheets
 
@@ -137,7 +140,15 @@ If some symbols are missing, you may need to download a Nerd Font patched font. 
 
 https://github.com/ryanoasis/nerd-fonts
 
-If you don't want to download a font and also don't want to see broken characters in the theme, disable tmux-power theme in ```~/.tmux.conf``` by commenting the ```set -g @plugin 'wfxr/tmux-power'``` line with a ```#```.
+If you don't want to download a font and also don't want to see broken characters in the theme, disable tmux-power theme in ```~/.tmux.conf``` by commenting the ```set -g @plugin 'rlvilla/tmux-power'``` line with a ```#```.
+
+## Development
+
+Currently testing a custom made oh-my-zsh 'agnoster' theme with timestamp to the right. Enable it by commenting the ```sed -i 's/="robbyrussell"/="agnoster"/' ~/.zshrc``` line and uncommenting the next curl and sed commands. Also with:
+
+```bash
+bash -c "$(curl -fsSL https://github.com/rlvilla/OhMyTmux/raw/main/ohmytmux.sh)" -s testing
+```
 
 ## References
 

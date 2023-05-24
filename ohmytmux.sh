@@ -109,7 +109,15 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-sed -i 's/="robbyrussell"/="agnoster"/' ~/.zshrc
+# Testing this custom agnoster theme with timestamp to the right
+if [ "$1" == "testing" ]
+then
+    echo "Testing mode enabled"
+    curl -fsLo ~/.oh-my-zsh/custom/themes/agnoster_time.zsh-theme https://github.com/rlvilla/OhMyTmux/raw/main/agnoster_time.zsh-theme
+    sed -i 's/="robbyrussell"/="agnoster_time"/' ~/.zshrc
+else
+    sed -i 's/="robbyrussell"/="agnoster"/' ~/.zshrc
+fi
 
 sed -i 's/plugins=(git)/plugins=(\
         git\
