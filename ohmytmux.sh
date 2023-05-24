@@ -68,8 +68,9 @@ bind c new-window -c \"#{pane_current_path}\"
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'nhdaly/tmux-better-mouse-mode'
 
-set -g @plugin 'wfxr/tmux-power'
+set -g @plugin 'rlvilla/tmux-power'
 set -g @tmux_power_theme '#ff8700'
+set -g @tmux_power_date_format '%d/%m/%y'
 
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
@@ -147,8 +148,7 @@ else
     echo "alias cat=\"bat --style=plain\"" >> ~/.zshrc
     echo "export MANPAGER=\"sh -c 'col -bx | bat -l man -p'\"" >> ~/.zshrc
     mkdir -p ~/.termux
-    cd ~/.termux
-    curl -fsLo font.ttf https://github.com/Cabbagec/termux-ohmyzsh/raw/master/.termux/fonts/SourceCodePro/Sauce%20Code%20Powerline%20Regular.otf 
+    curl -fsLo ~/.termux/font.ttf https://github.com/ryanoasis/nerd-fonts/raw/12a523c32d55bdde88074e5b09e2b2e1eb9b5342/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete%20Mono.ttf 
     termux-reload-settings
     echo "# Resize panes with arrow keys because alt-arrow keys doesn't work
 bind-key -r Up    resize-pane -U
