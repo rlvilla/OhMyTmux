@@ -93,7 +93,8 @@ bind-key C-b send-prefix" > ~/.tmux.conf
 chmod 755 ~/.tmux
 mkdir ~/.tmux/resurrect
 
-echo "\nChanging default shell..."
+echo ""
+echo "Changing default shell..."
 
 if ! command -v termux-info &> /dev/null
 then
