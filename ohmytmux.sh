@@ -2,7 +2,7 @@
 
 if command -v pacman &> /dev/null
 then
-    sudo pacman -Syyy --needed zsh yay tldr bat flameshot tmux curl git xclip ttf-nerd-fonts-symbols-mono
+    sudo pacman -Syyy --needed zsh yay tldr bat flameshot tmux curl git xclip ttf-nerd-fonts-symbols-mono openssl ncurses
 fi
 
 if command -v sudo &> /dev/null && command -v apt &> /dev/null
@@ -153,6 +153,7 @@ then
         echo "alias cat=\"bat --style=plain\"" >> ~/.zshrc
         echo "export MANPAGER=\"sh -c 'col -bx | bat -l man -p'\"" >> ~/.zshrc
     fi
+    echo "export MANROFFOPT=\"-c\"" >> ~/.zshrc
 else
     echo "alias cat=\"bat --style=plain\"" >> ~/.zshrc
     echo "export MANPAGER=\"sh -c 'col -bx | bat -l man -p'\"" >> ~/.zshrc
@@ -181,6 +182,29 @@ echo "
 run '~/.tmux/plugins/tpm/tpm'" >> ~/.tmux.conf
 
 ~/.tmux/plugins/tpm/scripts/install_plugins.sh
+
+if ! command -v termux-info &> /dev/null
+    then
+    echo ""
+    read -p "Do you want to install and enable Pyenv? Proceed with care (yes/no) "
+    if [ "$REPLY" == "yes" ]; then
+        if command -v pacman &> /dev/null
+        then
+            sudo pacman -S --needed base-devel openssl zlib xz tk
+        fi
+        
+        if command -v sudo &> /dev/null && command -v apt &> /dev/null
+        then
+            sudo apt install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl git libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+        fi
+        curl https://pyenv.run | bash
+        echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+        # May be needed: echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+        echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+        echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+    fi
+fi
+
 
 NC='\033[0m' # No Color
 GREEN='\033[0;32m'
